@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Top Section -->
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchWhitelist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Whitelist Mode (Allow only contacts)"
+            android:padding="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Block a Phone Number"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter phone number"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"
+            android:textColor="#262626"
+            android:textColorHint="#AAAAAA"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <CheckBox
+                android:id="@+id/cbBlockCalls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Block Calls"
+                android:textColor="#FFFFFF" />
+
+            <CheckBox
+                android:id="@+id/cbBlockSms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Block SMS"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="32dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnBlockNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BLOCK NUMBER"
+            android:backgroundTint="#FF4444"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Blocked list title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blocked Numbers List"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Blocked numbers appear here -->
+        <LinearLayout
+            android:id="@+id/blockedNumbersContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="32dp"/>
+
+    </LinearLayout>
+</ScrollView>

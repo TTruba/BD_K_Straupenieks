@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome, User!"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btnSelectFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select MP3 File" />
+
+    <TextView
+        android:id="@+id/tvSelectedFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No file selected" />
+
+    <Button
+        android:id="@+id/btnTranscribe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transcribe"
+        android:enabled="false" />
+    <Button
+        android:id="@+id/btnStartRealtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Real-Time Detection" />
+
+    <Button
+        android:id="@+id/btnStopRealtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/tvTranscriptionResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:paddingTop="20dp" />
+
+
+</LinearLayout>

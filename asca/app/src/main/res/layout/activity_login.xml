@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Username Input -->
+    <TextView
+        android:id="@+id/tvLoginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="28sp"
+        android:textColor="@color/redAccent"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:textColorHint="@color/grayHint"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/lightGray"
+        android:padding="12dp"
+        android:background="@drawable/edit_text_border"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColorHint="@color/grayHint"
+        android:backgroundTint="@color/lightGray"
+        android:textColor="@color/lightGray"
+        android:padding="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edit_text_border"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"/>
+
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dont have accout? Register"
+        android:textColor="@color/redAccent"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:textStyle="bold"/>
+
+</LinearLayout>
