@@ -20,3 +20,7 @@ Serverpuses SQL vaicājumu kods pieejams: \PHP backend
 Datubāzes eksports: 4632858_asca.sql
 
 Mobīlās lietotnes instalācijas fails: app-debug.apk
+
+
+
+Bildes un Video ar lietotnes protatipu un reāllaika audio testešānu pieejams: \Bildes un video ar lietotni
