@@ -1,0 +1,1 @@
+# BD_K_Straupenieks
