@@ -159,8 +159,6 @@ class ProfileFragment : Fragment() {
         val etEmail = dialogView.findViewById<EditText>(R.id.etEmail)
         val etPhoneNumber = dialogView.findViewById<EditText>(R.id.etPhoneNumber)
         val btnSubmit = dialogView.findViewById<Button>(R.id.btnSubmitPersonalInfo)
-
-        // Pre-fill with existing data
         etFullName.setText(tvFullName.text)
         etEmail.setText(tvEmail.text)
         etPhoneNumber.setText(tvPhoneNumber.text)
