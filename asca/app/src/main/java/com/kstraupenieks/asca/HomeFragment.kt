@@ -81,10 +81,10 @@ class HomeFragment : Fragment() {
                     withContext(Dispatchers.Main) {
                         val textOnly = JSONObject(transcription).getString("text")
                         tvTranscriptionResult.text = """
-                        ✅ Transcription:
+                        Transcription:
                         $textOnly
 
-                        ⚠️ Possible scammer? → $classification
+                        Possible scammer? → $classification
                         """.trimIndent()
 
                         if (classification.equals("yes", ignoreCase = true)) {
@@ -151,10 +151,10 @@ class HomeFragment : Fragment() {
                     withContext(Dispatchers.Main) {
                         val textOnly = JSONObject(transcription).optString("text", "no text")
                         tvTranscriptionResult.text = """
-                        ✅ Transcription:
+                        Transcription:
                         $textOnly
 
-                        ⚠️ Possible scammer? → $classification
+                        Possible scammer? → $classification
                     """.trimIndent()
 
                         if (classification.equals("yes", ignoreCase = true)) {
@@ -358,7 +358,7 @@ class HomeFragment : Fragment() {
 
         val builder = NotificationCompat.Builder(requireContext(), channelId)
             .setSmallIcon(android.R.drawable.ic_dialog_alert)
-            .setContentTitle("⚠️ Scam Call Detected")
+            .setContentTitle("Scam Call Detected")
             .setContentText("Open the app to review the call.")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
 
