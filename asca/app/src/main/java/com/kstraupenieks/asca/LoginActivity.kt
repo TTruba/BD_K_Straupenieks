@@ -24,26 +24,21 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences("UserSession", Context.MODE_PRIVATE)
 
-        // Check if user is already logged in
         if (sharedPreferences.getString("token", null) != null) {
             navigateToHomePage()
         }
 
-        // Initialize Views
         val etUsername = findViewById<EditText>(R.id.etUsername)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val tvRegister = findViewById<TextView>(R.id.tvRegister)
 
-        // Navigate to Register Activity
         tvRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        // Handle Login Button Click
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString().trim()
             val password = etPassword.text.toString().trim()
