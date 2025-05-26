@@ -22,7 +22,7 @@ class ScamCallScreeningService : CallScreeningService() {
         val whitelistEnabled = prefs.getBoolean("whitelist_mode", false)
 
         if (whitelistEnabled && !isNumberInContacts(this, number)) {
-            Log.d("CallScreening", "🔒 Whitelist mode enabled: $number not in contacts → rejected")
+            Log.d("CallScreening", "Whitelist mode enabled: $number not in contacts → rejected")
 
             CallReceiver.showScamNotification(this, number, "whitelist")
 
