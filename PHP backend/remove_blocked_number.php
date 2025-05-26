@@ -11,8 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_result($user_id);
     if ($stmt->fetch()) {
         $stmt->close();
-
-        
         $delete = $conn->prepare("DELETE FROM blocked_numbers WHERE user_id = ? AND phone_number = ?");
         $delete->bind_param("is", $user_id, $phone_number);
         if ($delete->execute()) {
