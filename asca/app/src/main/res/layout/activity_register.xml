@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <!-- Full Name Input -->
     <EditText
         android:id="@+id/etFullName"
         android:layout_width="match_parent"
@@ -15,8 +14,6 @@
         android:inputType="text"
         android:padding="12dp"
         android:background="@drawable/edit_text_border"/>
-
-    <!-- Username Input -->
     <EditText
         android:id="@+id/etRegUsername"
         android:layout_width="match_parent"
@@ -27,7 +24,6 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/edit_text_border"/>
 
-    <!-- Email Input -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
@@ -38,7 +34,6 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/edit_text_border"/>
 
-    <!-- Phone Number Input -->
     <EditText
         android:id="@+id/etPhoneNumber"
         android:layout_width="match_parent"
@@ -49,7 +44,6 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/edit_text_border" />
 
-    <!-- Password Input -->
     <EditText
         android:id="@+id/etRegPassword"
         android:layout_width="match_parent"
@@ -60,7 +54,6 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/edit_text_border"/>
 
-    <!-- Confirm Password Input -->
     <EditText
         android:id="@+id/etConfirmPassword"
         android:layout_width="match_parent"
@@ -71,7 +64,6 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/edit_text_border"/>
 
-    <!-- Register Button -->
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
@@ -79,8 +71,6 @@
         android:text="@string/registerButt"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_button"/>
-
-    <!-- Back to Login -->
     <TextView
         android:id="@+id/tvBackToLogin"
         android:layout_width="wrap_content"
