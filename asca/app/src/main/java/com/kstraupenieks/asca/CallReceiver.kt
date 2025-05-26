@@ -30,32 +30,31 @@ class CallReceiver : BroadcastReceiver() {
 
             when (state) {
                 TelephonyManager.EXTRA_STATE_RINGING -> {
-                    Log.d("CallReceiver", "📞 Incoming call detected")
+                    Log.d("CallReceiver", "Incoming call detected")
 
                     if (context != null && hasRequiredPermissions(context)) {
                         try {
-                            // ⚠️ This line is what may throw SecurityException
                             val incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
 
                             if (!incomingNumber.isNullOrEmpty()) {
                                 checkIfScamNumber(context, incomingNumber)
                             } else {
-                                Log.w("CallReceiver", "Incoming number is null or empty (possibly restricted by Android)")
+                                Log.w("CallReceiver", "Incoming number is empty")
                             }
                         } catch (e: SecurityException) {
                             Log.e("CallReceiver", "SecurityException while accessing phone number", e)
                         }
                     } else {
-                        Log.w("CallReceiver", "Missing required permissions for incoming number")
+                        Log.w("CallReceiver", "Missing permissions for incoming number")
                     }
                 }
 
                 TelephonyManager.EXTRA_STATE_OFFHOOK -> {
-                    Log.d("CallReceiver", "✅ Call connected")
+                    Log.d("CallReceiver", "Call connected")
                 }
 
                 TelephonyManager.EXTRA_STATE_IDLE -> {
-                    Log.d("CallReceiver", "❌ Call ended")
+                    Log.d("CallReceiver", "Call ended")
                 }
             }
         }
@@ -130,20 +129,20 @@ class CallReceiver : BroadcastReceiver() {
 
             when (type) {
                 "user" -> {
-                    title = "📛 Blocked Number"
+                    title = "Blocked Number"
                     message = "Blocked number $number tried to call."
                 }
                 "frequency" -> {
-                    title = "📞 Spam Behavior Detected"
+                    title = "Spam Behavior Detected"
                     message = "Caller $number made too many calls recently."
                 }
                 "whitelist" -> {
-                    title = "🔒 Whitelist Block"
+                    title = "Whitelist Block"
                     message = "Caller $number is not in your contacts."
                 }
                 else -> {
-                    title = "⚠️ Scam Call Detected"
-                    message = "Caller $number is flagged as scam."
+                    title = "Scam Call Detected"
+                    message = "Caller $number is possible scam."
                 }
             }
 
