@@ -20,7 +20,6 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        // Initialize Views
         val etFullName = findViewById<EditText>(R.id.etFullName)
         val etUsername = findViewById<EditText>(R.id.etRegUsername)
         val etEmail = findViewById<EditText>(R.id.etEmail)
@@ -30,13 +29,11 @@ class RegisterActivity : AppCompatActivity() {
         val btnRegister = findViewById<Button>(R.id.btnRegister)
         val tvBackToLogin = findViewById<TextView>(R.id.tvBackToLogin)
 
-        // Navigate Back to Login
         tvBackToLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
-            finish() // Closes RegisterActivity
+            finish()
         }
 
-        // Handle Register Button Click
         btnRegister.setOnClickListener {
             val fullName = etFullName.text.toString().trim()
             val username = etUsername.text.toString().trim()
