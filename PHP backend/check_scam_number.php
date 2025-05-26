@@ -2,9 +2,8 @@
 header('Content-Type: application/json'); // ✅ Ensure JSON output
 require 'db_connection.php';
 
-// Basic error reporting (for debugging, disable in production)
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 try {
     if (!isset($_POST['phone'])) {
         echo json_encode(["success" => false, "message" => "Missing phone number"]);
@@ -27,7 +26,6 @@ try {
     $stmt->close();
     $conn->close();
 } catch (Exception $e) {
-    // ✅ Always return valid JSON, even on error
     echo json_encode([
         "success" => false,
         "error" => "Server error",
