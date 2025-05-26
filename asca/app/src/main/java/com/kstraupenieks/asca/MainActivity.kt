@@ -24,7 +24,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     private val requestCodePermissions = 101
-    private val requestCodeCallScreening = 200 // 👈 Added for call screening role
+    private val requestCodeCallScreening = 200
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,12 +44,12 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
         checkPermissions()
-        requestCallScreeningRole() // 👈 Request CALL_SCREENING role here
+        requestCallScreeningRole()
 
-        // Set default fragment
+       
         loadFragment(HomeFragment())
 
-        // Handle navigation item clicks
+
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> loadFragment(HomeFragment())
@@ -117,8 +117,8 @@ class MainActivity : AppCompatActivity() {
         )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            permissions.add(Manifest.permission.READ_MEDIA_AUDIO) // Android 13+
-            permissions.add(Manifest.permission.POST_NOTIFICATIONS) // Required for notifications
+            permissions.add(Manifest.permission.READ_MEDIA_AUDIO) 
+            permissions.add(Manifest.permission.POST_NOTIFICATIONS) 
         }
 
         val permissionsNeeded = permissions.filter {
@@ -158,7 +158,6 @@ class MainActivity : AppCompatActivity() {
         alertDialog.show()
     }
 
-    // 🔹 New method: Request CALL_SCREENING role (Android 10+)
     private fun requestCallScreeningRole() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             val roleManager = getSystemService(RoleManager::class.java)
@@ -171,15 +170,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // 🔹 Handle role request result
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == requestCodeCallScreening) {
             if (resultCode == RESULT_OK) {
-                Toast.makeText(this, "✅ Call screening enabled!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Call screening enabled!", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "❌ Call screening not granted.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Call screening not granted.", Toast.LENGTH_SHORT).show()
             }
         }
     }
