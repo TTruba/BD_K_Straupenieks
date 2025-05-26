@@ -37,7 +37,6 @@ class SettingsFragment : Fragment() {
         val prefs = requireActivity().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
         val switchWhitelist = view.findViewById<SwitchCompat>(R.id.switchWhitelist)
 
-        // Load and apply saved switch state
         switchWhitelist.isChecked = prefs.getBoolean("whitelist_mode", false)
 
         switchWhitelist.setOnCheckedChangeListener { _, isChecked ->
