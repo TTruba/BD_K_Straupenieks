@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $call_time = trim($_POST['call_time'] ?? date('Y-m-d H:i:s'));
 
     if (!empty($phone)) {
-        // Step 1: Resolve phone_number_id
+        
         $stmt = $conn->prepare("SELECT id FROM phone_numbers WHERE phone_number = ? LIMIT 1");
         $stmt->bind_param("s", $phone);
         $stmt->execute();
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $stmt->close();
 
-        // Step 2: Get user ID if this phone belongs to a registered user
+        
         $caller_id = null;
         $userStmt = $conn->prepare("SELECT id FROM users WHERE phone_number_id = ? LIMIT 1");
         $userStmt->bind_param("i", $phone_number_id);
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $userStmt->close();
 
-        // Step 3: Insert into call_log
+        
         $insertLog = $conn->prepare("
             INSERT INTO call_log (phone_number_id, caller_id, call_time, picked_up, denied, duration, source)
             VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $logSaved = $insertLog->affected_rows > 0;
         $insertLog->close();
 
-        // Step 4: Count recent calls from this number in the last hour
+        
         $countStmt = $conn->prepare("
             SELECT COUNT(*) AS count FROM call_log 
             WHERE phone_number_id = ? AND created_at >= (NOW() - INTERVAL 1 HOUR)
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $count = $countResult['count'];
         $countStmt->close();
 
-        // Final response
+       
         $response['success'] = true;
         $response['log_saved'] = $logSaved;
         $response['blocked'] = $count >= 100;
