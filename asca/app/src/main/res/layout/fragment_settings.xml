@@ -11,7 +11,6 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- Top Section -->
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchWhitelist"
             android:layout_width="match_parent"
@@ -73,7 +72,6 @@
             android:padding="12dp"
             android:layout_marginBottom="24dp" />
 
-        <!-- Blocked list title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,7 +81,6 @@
             android:textColor="#FFFFFF"
             android:layout_marginBottom="8dp" />
 
-        <!-- Blocked numbers appear here -->
         <LinearLayout
             android:id="@+id/blockedNumbersContainer"
             android:layout_width="match_parent"
