@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Step 1: Check or insert into phone_numbers
     $stmtPhone = $conn->prepare("SELECT id FROM phone_numbers WHERE phone_number = ? LIMIT 1");
     $stmtPhone->bind_param("s", $phone);
     $stmtPhone->execute();
@@ -31,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $stmtPhone->close();
 
-    // Step 2: Check if username/email/phone_number_id already used
     $check_user = $conn->prepare("SELECT id FROM users WHERE username = ? OR email = ? OR phone_number_id = ?");
     $check_user->bind_param("ssi", $username, $email, $phone_number_id);
     $check_user->execute();
@@ -44,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $check_user->close();
 
-    // Step 3: Insert into users
     $stmt = $conn->prepare("INSERT INTO users (full_name, username, email, phone_number_id, password) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssis", $full_name, $username, $email, $phone_number_id, $password);
 
